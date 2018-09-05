@@ -1,0 +1,44 @@
+Assignment 12.2 
+
+(a)
+
+Assumptions of anova
+Independence of cases - this is an assumption of the model that simplifies the statistical analysis.
+Normality - the distributions of the residuals are normal.
+Equality -(or "homogeneity") of variances.
+
+yeast<-read.table("C:/Users/Admin/Documents/acd/yeast.txt",quote="\"",comment.char="")
+View(yeast)
+summary(yeast)
+library(tidyverse)
+yeast<read.table('https://archive.ics.uci.edu/ml/machine-learning-databases/yeast/yeast.data'stringsAsFactors=False)
+
+
+
+plot(res.aov, 2)
+
+plot(res.aov, 3)
+
+plot(res.aov, 4)
+
+plot(res.aov, 5)
+
+plot(res.aov, 6)
+
+(b)
+
+The one-way analysis of variance is used to determine whether there are any statistically significant differences 
+between the means of two or more independent groups.
+
+
+aov_residuals <- residuals(object = res.aov )
+shapiro.test(x = aov_residuals )
+w= 0.699 p-vaue< < 2.2e-16
+
+
+kruskal.test(nuc ~ mcg, data = yeast)
+df=80 p= 0.000688    Kruskal-Wallis chi-squared=126.7
+
+
+oneway.test(nuc ~ LocalizationSite , data = yeast)
+F = 23.555, num df = 9.000, denom df = 83.991, p-value < 2.2e-16
